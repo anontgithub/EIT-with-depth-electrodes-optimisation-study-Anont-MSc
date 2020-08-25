@@ -4,7 +4,7 @@ Imaging fast neural activity using EIT with depth electrodes: optimisation study
 Hello, this is the README file for Anont's MSc Project on EIT depth electrodes optimisation using comsol and matlab  UCL (2019-2020)
 BY Anont Hewchaiyaphum
 If you have any questions feel free to contact me on anont.hewchaiyaphum.19@ucl.ac.uk (UCL email)
-Github link: https://github.com/anontgithub/EIT-with-depth-electrodes-optimisation-study-Anont-MS
+Github link: https://github.com/anontgithub/EIT-with-depth-electrodes-optimisation-study-Anont-MSc
 
 The folder contains 4 folders, Backgroundgithub, P02github P005github and sum (the word github in the names will be omitted for the rest of the README)
 Background contains files used to run the background simulation, without the perutabtion which the results are then used for calculating dVs.
