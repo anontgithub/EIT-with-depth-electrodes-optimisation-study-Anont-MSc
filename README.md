@@ -29,63 +29,63 @@ So after the models have run and you have all the results which are the loopresu
 
 Firstly, the data processing files for background will be explained first.
 They should be run in the order explained here.
-1) -collateall-
+1) collateall
 collateall collates all the loopresults textfiles all into matlab mat file called fulldataRR.mat
-2) -removeinjele-
+2) removeinjele
 This script removes injecting electrode results from fulldataRR as they cannot be used to calculate the dVs. It produces fullBdatarinj.mat
-3)-keepinjele-
+3) keepinjele
 This script keeps only results from injecting electrode results. It produces fulldataRROinj which will be used for contactimpedance scaling.
-4) -contactimpedancescaling-
+4) contactimpedancescaling
 This script creates a scaling factor called scaleCB which can be applied to results so that no voltage is larger than 12V even with contact
 impedance voltage added. scaleCB is used later on.
 Background also includes two scripts that are the design parameters for the final objective function
-5) -DPshankdepth-
+5) DPshankdepth
 Produces shankdepthN which is the normalised results for the the design parameter.
-6) -DPnumberofshank-
+6) DPnumberofshank
 Produces numshnkN which is the normalised results aswell for the design parameter. These will be later used for the objective function.
 
 Secondly, we go to the data processing files of P02, some are quite similar
-1) -collateall-
+1) collateall
 Same function as in background folder but for P02 instead, produces full02dataRR
-2) - removeinjele-
+2) removeinjele
 Same function as in background folder but for P02 instead, produces full02datarinj
-3) - dvproducer-
+3)  dvproducer
 To run this script you must copy files fullBdatarinj and scaleCB created in the background folder into the P02 folder.
 This script produces the dVs between the P02 and background voltages. It creates the dV between the files full02datarinj and fullBdatarinj.  
 It also then applies scaleCB and scales the resulting dVs produced so that the results are contact impedance scaled. scaleCB was produced in the file contactimpedancescaling
 in background. dvproducer produces the file duV02baseScF with the dVs.
-4) -DPovernoise-
+4) DPovernoise
 This script is the design parameter for total number of electrodes over the noisefloor for P02.
 The script uses duV02baseScF as the dVs and tconfig(9,i) (row 9), which contains the noise for all configurations.
 It produces overnoiseN02 which is a normalised value with 1 being maximum.
-5) -DPtoptenmean-
+5) DPtoptenmean
 Design parameter for mean of top 10% of electrode dVs for a configuration. Uses duV02baseScF for dVs.
 Produces toptenmeanN02 which is normalised.
 
 Then we go to P005, most files are similar to P02 but are just adressing different file names
-1) -collateall-
+1) collateall
 Same function as in P02 and background folder but for P005 instead, produces full005dataRR
-2) - removeinjele-
+2)  removeinjele
 Same function as in P02 and background folder but for P005 instead, produces full005datarinj
-3) - dvproducer-
+3) dvproducer
 To run this script you must copy files fullBdatarinj and scaleCB created in the background folder into the P005 folder.
 Similar function as in P02. It creates the dV between the files full005datarinj and fullBdatarinj.  
 Produces duV005baseScF
-4) -DPovernoise-
+4) DPovernoise
 Similar function as in P02. Uses duV005baseScF and noise from row 9 of tconfig2. Produces overnoiseN005.
-5) -DPtoptenmean-
+5) DPtoptenmean
 Similar function as in P02. Uses duV005baseScF and produces toptenmeanN005.
 
 Now finally onto sum, the folder for the objective function
 We have calculated the design parameter results already in the previous folders so now copy them to this folder.
 They include shankdepthN, numshnkN, overnoiseN02, toptenmeanN02, overnoiseN005 and toptenmeanN005.
 Also ensure that tconfig2 and errorlist are in the folder as they are required. errorlist may not be required in some circumstance as explained earlier. 
-1) -objectivefunctionsum-
+1) objectivefunctionsum
 The script loads all the different design parameter results and sums them up to be the objective function results for all configurations.
 It also omitts configurations with no electrode dVs over the noise.
 It also plots the objective function against the all the configurations.
 Addtionally it produces sumplot, a datafile used for objfunanalyse
-2 -objfunanalyse-
+2) objfunanalyse
 This script plots the objective function values for configurations neighbouring the optimal configuration. 
 It varys one parameter at a time while fixing all the other parameters.
 The script can plot all line in one graph or it can be subplotted separately.
