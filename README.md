@@ -104,10 +104,11 @@ tconfig2 (mat filename) contains tconfig (array name) which is the table of conf
 contains parameters for all configurations in each row.
 The rows are the parameters and each column is a different configuration.
 The rows are:
+
 1) shank spacing (mm)
-2)shank depth (mm)   (shank depth is swapped with shank width in the thesis)
-3)Intra shank electrode spacing (mm)
-4)Total number of electrodes in a configuration
+2) shank depth (mm)   (shank depth is swapped with shank width in the thesis)
+3) Intra shank electrode spacing (mm)
+4) Total number of electrodes in a configuration
 5) Number of electrodes per shank
 6) Electrode height (mm)
 7) Electrode surface area (m^2)
